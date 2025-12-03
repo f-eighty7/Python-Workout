@@ -2,11 +2,20 @@ from random import randint
 
 
 def guessing_game():
+    """
+    Runs a CLI number guessing game where the user has limited attempts
+    to guess a random integer between 1 and 100.
+
+    The game loop handles input validation, tracks remaining chances,
+    and provides feedback on whether guesses are too high or too low.
+    """
     chances = 3
     target_number = randint(1, 100)
 
     while True:
-
+        # Logic: Check for game over condition at the very start of the loop.
+        # This acts as a 'gatekeeper' to prevent the input() function below
+        # from triggering a 4th time after the 3rd wrong guess.
         if chances == 0:
             print(
                 f"You have lost all your chances. The answer was: {target_number}. Goodbye!"
@@ -37,6 +46,7 @@ def guessing_game():
             print("\nToo high! Try again\n")
         else:
             print("\nToo low! Try again\n")
+
         chances -= 1
 
 
